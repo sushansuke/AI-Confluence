@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#061b57" />
+    <title>AI Confluence 2026 | Registration Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Keeps the page footer rules from affecting the card footers. */
+      .event-card footer { position: static; max-width: none; margin: auto 0 0; border: 0; padding: 17px 0 0; }
+      .dsvv-logo { overflow: hidden; background: #fff; border: 1px solid #d8e2f1; box-shadow: 0 6px 15px #315ec22c; }
+      .dsvv-logo img { width: 461px; max-width: none; display: block; transform: translate(-6px, -5px); }
+      .countdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 13px 0 16px; }
+      .countdown > span { background: #eef5ff; border-radius: 7px; padding: 7px 3px; text-align: center; }
+      .countdown b { display: block; color: #154b9c; font: 700 18px Outfit; line-height: 1; }
+      .countdown small { display: block; margin-top: 4px; color: #74819b; font-size: 8px; font-weight: 700; text-transform: uppercase; }
+      /* Brighter version of the original AI orbit illustration. */
+      .hero-visual { background: radial-gradient(circle at 43% 42%, #65d7fa 0, #3389eb 18%, #164baf 43%, #0a286c 75%) !important; box-shadow: inset 0 0 80px #071a4b, 0 26px 45px #1e4a9750; }
+      .qr-only { display: grid; place-items: center; }
+      .qr-only .qr-crop { width: 210px; height: 210px; }
+      .qr-only .qr-crop img { width: 100%; height: 100%; max-width: 100%; object-fit: fill; transform: none; }
+      .qr-only .qr-wrap p { margin-top: 13px; font-size: 17px; }
+      .qr-only .qr-wrap small { display: block; max-width: 230px; line-height: 1.5; }
+      .qr-modal { width: min(360px, calc(100% - 32px)); border: 0; border-radius: 20px; padding: 28px; text-align: center; box-shadow: 0 28px 90px #0008; }
+      .qr-modal::backdrop { background: #06163caa; backdrop-filter: blur(5px); }
+      .qr-modal .close-modal { position: absolute; top: 14px; right: 14px; }
+      .qr-modal img { width: 100%; max-width: 252px; display: block; margin: 4px auto 19px; }
+      .qr-modal h2 { margin: 0 0 8px; font: 700 25px Outfit; }
+      .qr-modal p { margin: 0; color: #68748e; font-size: 13px; line-height: 1.55; }
+      @media (max-width: 760px) {
+        .event-card footer { padding: 17px 0 0; line-height: normal; }
+        .qr-wrap { display: block; }
+        .qr-only .qr-crop { width: 180px; height: 180px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+    <header class="site-header">
+      <a href="#top" class="brand" aria-label="AI Confluence home">
+        <span class="brand-mark dsvv-logo"><img src="assets/ai-confluence-poster.jpg" alt="Dev Sanskriti Vishwavidyalaya logo" /></span>
+        <span><strong>Dev Sanskriti Vishwavidyalaya</strong></span>
+      </a>
+      <nav><a href="#events">Events</a><a href="#about">About</a><a href="#register" class="nav-cta" data-open-qr>Registration QR <span>↓</span></a></nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" id="about">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="pulse"></span> Preliminary events · 15 September 2026</div>
+          <p class="hero-kicker">Shaping inclusive governance in the intelligent age</p>
+          <h1>AI for <em>Democracy.</em></h1>
+          <p class="hero-text">A series of interdisciplinary competitions inviting curious minds to create, question, build and shape a better tomorrow.</p>
+          <div class="hero-actions"><a href="#events" class="button primary">Explore competitions <span>↓</span></a></div>
+          <div class="hero-meta"><span><b>12</b> competitions</span><i></i><span><b>All</b> disciplines welcome</span><i></i><span><b>02 Sep</b> registration closes</span></div>
+        </div>
+        <div class="hero-visual" aria-label="AI for Democracy event artwork">
+          <div class="orbital orbital-a"></div><div class="orbital orbital-b"></div>
+          <div class="ai-core"><div class="core-ring"></div><div class="core-ring ring-two"></div><div class="core-word">AI<small>FOR<br>DEMOCRACY</small></div></div>
+          <div class="visual-label top-label">AI CONFLUENCE<br><b>2026</b></div><div class="visual-label lower-label">CREATE · CONNECT · CHANGE</div>
+        </div>
+      </section>
+
+      <section class="dashboard" id="events">
+        <div class="section-heading"><div><p class="eyebrow">Choose your challenge</p><h2>Competition dashboard</h2></div><p>Open an event to read its brief and scan the official registration QR code.</p></div>
+        <div class="filter-row" role="group" aria-label="Filter competitions"><button class="filter active" data-filter="all">All events <span>12</span></button><button class="filter" data-filter="creative">Creative</button><button class="filter" data-filter="innovation">Innovation</button><button class="filter" data-filter="communication">Communication</button></div>
+        <div class="events-grid" id="eventsGrid"></div>
+      </section>
+
+      <section class="register-banner" id="register">
+        <div class="register-copy"><p class="eyebrow"><span class="pulse"></span> One place for every idea</p><h2>Ready to make your<br><em>impact?</em></h2><p>Open any competition and scan the official QR code to complete your Google Form registration. Participation is open to students from every academic discipline.</p></div>
+        <div class="deadline-card"><span class="calendar">▣</span><p>Registration deadline</p><strong>02<sup>nd</sup> September</strong><small>2026 · 11:59 PM IST</small><div class="deadline-rule"></div><div class="countdown" aria-label="Time remaining to register"><span><b id="days">00</b><small>Days</small></span><span><b id="hours">00</b><small>Hours</small></span><span><b id="minutes">00</b><small>Minutes</small></span><span><b id="seconds">00</b><small>Seconds</small></span></div><span class="event-day">Global event · 15 September 2026</span></div>
+      </section>
+    </main>
+    <footer class="site-footer"><span>© 2026 Dev Sanskriti Vishwavidyalaya</span><span>Gayatrikunj · Shantikunj, Haridwar, Uttarakhand</span><a href="#top">Back to top ↑</a></footer>
+
+    <dialog class="event-modal" id="eventModal">
+      <div class="modal-top"><span class="modal-number" id="modalNumber">01</span><button class="close-modal" aria-label="Close registration">×</button></div>
+      <div class="modal-content"><div class="modal-intro"><p class="eyebrow" id="modalCategory">Creative challenge</p><h2 id="modalTitle">Humanity 2050</h2><p id="modalDescription"></p><div class="topic-box"><span>Focus topic</span><strong id="modalTopic"></strong></div><div class="deadline-line"><span>◷</span><div><small>Registration deadline</small><b>02 September 2026 · 11:59 PM</b></div></div></div>
+      <aside class="modal-side qr-only"><div class="qr-wrap"><div class="qr-crop"><img src="assets/registration-qr.png" alt="AI Confluence registration QR code" /></div><p>Scan to register</p><small>Use this official QR code to open the Google Form.</small></div></aside></div>
+    </dialog>
+    <dialog class="qr-modal" id="qrModal"><button class="close-modal" aria-label="Close QR code">×</button><img src="assets/registration-qr.png" alt="AI Confluence Google Form registration QR code" /><h2>Registration QR</h2><p>Scan this code with your phone to open the official Google Form.</p></dialog>
+    <script src="script.js"></script>
+  </body>
+</html>
